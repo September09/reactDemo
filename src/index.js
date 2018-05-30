@@ -9,7 +9,7 @@ import { render } from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 import 'babel-polyfill';
 import { browserHistory } from 'react-router'
-import RouterMap from './router';
+import RouterMap from './router/router';
 
 import App from './App'
 
