@@ -6,24 +6,24 @@
 
 import React, { Component } from 'react';
 import { render } from 'react-dom';
-import App from './App';
 import { AppContainer } from 'react-hot-loader';
 import 'babel-polyfill';
+import { browserHistory } from 'react-router'
+import RouterMap from './router';
 
-const renderDom = (Component) => {
+import App from './App'
+
+const renderDom = () => {
   render(
     <AppContainer>
-      <Component />
+        <RouterMap />
     </AppContainer>,
     document.getElementById('app'),
   );
 };
 
-renderDom(App);
+renderDom();
 
 if (module.hot) {
-  module.hot.accept('./App', () => {
-    const App = require('./App').default;
-    renderDom(App);
-  });
+  module.hot.accept(renderDom());
 }
