@@ -7,6 +7,9 @@ import App from '../App';
 import Home from '../containers/Home';
 import Stuff from '../containers/Stuff';
 import Contact from '../containers/Contact';
+import Register from '../containers/register';
+import Login from '../containers/login';
+
 
 const RouteMap = () => (
   <HashRouter history={hashHistory}>
@@ -15,6 +18,8 @@ const RouteMap = () => (
       <Route path="/home" component={Home} />
       <Route path="/stuff" component={Stuff} />
       <Route path="/contact" component={Contact} />
+      <Route path="/register" component={Register} />
+      <Route path="/login" component={Login} />
     </div>
   </HashRouter>
 );

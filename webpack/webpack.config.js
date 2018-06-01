@@ -4,6 +4,20 @@
 
 const path = require('path');
 const webpack = require('webpack');
+const autoprefixer = require('autoprefixer');
+const pxtorem = require('postcss-pxtorem');
+const postcssConfig = {
+    loader: 'postcss-loader',
+    options: {
+        plugins: () => [
+            autoprefixer({browsers: ['> 1%', 'last 4 versions']}),
+            pxtorem({
+                rootValue: 100,
+                propWhiteList: [],
+            })
+        ]
+    }
+};
 
 module.exports = {
   entry: {
@@ -54,6 +68,25 @@ module.exports = {
           },
         }],
       },
+        {
+            test: /\.scss$/,
+            use: [
+                'style-loader',
+                'css-loader',
+                postcssConfig,
+                {
+                    loader: 'sass-loader',
+                    options: {
+                        sassLoader: {
+                            includePaths: [
+                                path.resolve(__dirname, "src/style"),
+                                path.resolve(__dirname, "src/components")
+                            ]
+                        }
+                    }
+                }
+            ],
+        }
     ],
   },
   plugins: [
