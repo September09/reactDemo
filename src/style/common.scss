@@ -63,6 +63,7 @@ body, #app, .container {
   border: 0.05rem solid #fff;
   border-radius: 0.5rem;
   padding: 1rem;
+  box-shadow: 10px 10px 5px #b7b7b7;
 }
 
 .col20 {
@@ -87,10 +88,6 @@ input::-webkit-input-placeholder {
 
 input:-ms-input-placeholder {
   text-align: left;
-}
-
-.userWrapper {
-  margin-top: 100px;
 }
 
 
