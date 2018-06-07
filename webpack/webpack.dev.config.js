@@ -12,6 +12,7 @@ process.env.NODE_ENV = 'development';
 
 module.exports = merge(webpackConfig, {
   devtool: 'cheap-module-eval-source-map',
+  mode: "development",
   entry: [
     'babel-polyfill',
     'react-hot-loader/patch',

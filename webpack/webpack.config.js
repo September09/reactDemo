@@ -52,6 +52,9 @@ module.exports = {
           },
           {
             loader: 'css-loader',
+              options: {
+                  limit: 25000
+              }
           },
         ],
       },
@@ -99,7 +102,7 @@ module.exports = {
     splitChunks: {
       name: 'vendor',
       chunks: 'initial',
-      minChunks: Infinity,
+      minChunks: Infinity
     },
   },
 };

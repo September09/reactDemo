@@ -12,6 +12,7 @@ const webpackConfig = require('./webpack.config');
 process.env.NODE_ENV = 'production';
 
 module.exports = merge(webpackConfig, {
+    mode: "production",
   entry: [
     'babel-polyfill',
     path.resolve(__dirname, '../src/index.prod.js'),

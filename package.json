@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "node bin/dev-server",
-    "build": "npm run clean && webpack --config webpack/webpack.prod.config.js --mode production",
-    "devbuild": "npm run clean && webpack --config webpack/webpack.dev.config.js --mode development",
+    "build": "npm run clean && webpack --config webpack/webpack.prod.config.js",
+    "devbuild": "npm run clean && webpack --config webpack/webpack.dev.config.js",
     "clean": "rimraf dist",
     "fix": "eslint src/ --fix"
   },
