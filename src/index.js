@@ -7,16 +7,23 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
+import { Provider } from 'react-redux'
 import 'babel-polyfill';
 import { browserHistory } from 'react-router'
+import { createStore } from 'redux'
+import rootReducer from './reducers'
+// import loginIn from "./login"
+import configureStore from './store/index'
 import RouterMap from './router/router';
 
 import App from './App'
-
+const store = configureStore();
 const renderDom = () => {
   render(
     <AppContainer>
-        <RouterMap />
+        <Provider store={store}>
+            <RouterMap />
+        </Provider>
     </AppContainer>,
     document.getElementById('app'),
   );

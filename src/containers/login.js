@@ -2,18 +2,33 @@
  * Created by september on 2018/6/1.
  */
 import React, { Component } from "react"
+import { bindActionCreators } from "redux"
+import { connect } from "react-redux"
 import "../style/common.scss"
 import "../style/register.scss"
 
+import * as loginActions from "../actions/login"
 
-export default class Login extends Component {
+
+export class Login extends Component {
   constructor(props) {
     super(props)
   }
   componentDidMount() {
 
   }
+  shouldComponentUpdate(nextProps, nextState) {
+    // 登录完成,切成功登录
+    console.log("nextState:", nextState)
+    if (nextProps.status === "登陆成功" && nextProps.isSuccess) {
+      console.log("here")
+      this.props.navigation.dispatch(resetAction)
+      return false
+    }
+    return true
+  }
   render() {
+    console.log("this.props:", this.props)
     return (
       <div className="loginWrapper">
         <div className="title">登录测试</div>
@@ -32,7 +47,11 @@ export default class Login extends Component {
           </div>
           <div className="form-group">
             <div className="btnWrapper">
-              <button type="button" className="btn btn-default loginBtn" id="info_submit">登录</button>
+              <button type="button" className="btn btn-default loginBtn" id="info_submit"
+                onClick={()=> {
+                  console.log(66666666)
+                  this.props.loginActions.login()
+                }}>{this.props.loginStatus.loginStatus}</button>
             </div>
           </div>
         </form>
@@ -40,3 +59,16 @@ export default class Login extends Component {
     )
   }
 }
+
+
+const mapStateToProps = state => ({
+  loginStatus: state.loginIn
+})
+
+function mapDispatchToProps(dispatch) {
+  return {
+    loginActions: bindActionCreators(loginActions, dispatch)
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login)
