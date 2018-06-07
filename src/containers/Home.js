@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react"
 
-const Home = () => (
+const Home = () =>
   <div>
     <h2>HELLO</h2>
     <p>Cras facilisis urna ornare ex volutpat, et
@@ -13,6 +13,6 @@ const Home = () => (
 
     <p>Duis a turpis sed lacus dapibus elementum sed eu lectus.</p>
   </div>
-);
 
-export default Home;
+
+export default Home

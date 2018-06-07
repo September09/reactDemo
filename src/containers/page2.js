@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react"
 
-const PageTwo = () => (
+const PageTwo = () =>
   <p>PAGE2</p>
-);
 
-export default PageTwo;
+
+export default PageTwo

@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react"
 
-const Stuff = () => (
+const Stuff = () =>
   <div>
     <h2>STUFF</h2>
     <p>Mauris sem velit, vehicula eget sodales vitae,
@@ -14,6 +14,6 @@ const Stuff = () => (
       <li>Id porttitor</li>
     </ol>
   </div>
-);
 
-export default Stuff;
+
+export default Stuff
