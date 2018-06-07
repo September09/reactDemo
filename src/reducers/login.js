@@ -5,9 +5,9 @@
 import * as actionTypes from "../actions/index"
 
 const initialState = {
-  loginStatus: "点击登录",
+  loginStatus: "未登录",
   isSuccess: false,
-  user: "未登录",
+  name: "",
 }
 
 export default function loginIn(state = initialState, action) {
@@ -17,24 +17,24 @@ export default function loginIn(state = initialState, action) {
       ...state,
       loginStatus: "正在登录",
       isSuccess: false,
-      user: "未登录",
+      name: "",
     }
   case actionTypes.LOGIN_IN_DONE:
     return {
       ...state,
       loginStatus: "登陆成功",
       isSuccess: true,
-      user: action.user,
+      name: action.name,
     }
   case actionTypes.LOGIN_IN_ERROR:
     return {
       ...state,
       loginStatus: "登录出错",
       isSuccess: true,
-      user: "未登录",
+      name: "",
     }
   default:
-    console.log(state)
+    console.log("state111111:", state)
     return state
   }
 }

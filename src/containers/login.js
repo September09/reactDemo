@@ -36,7 +36,12 @@ export class Login extends Component {
           <div className="form-group">
             <label htmlFor="loginusername" className="col20 fl">用户名</label>
             <div className="col80 fl">
-              <input type="text" className="inputStyle" id="loginusername" placeholder="请输入用户名" />
+              <input type="text" className="inputStyle" id="loginusername" placeholder="请输入用户名"
+                onChange={ (changeValue) => {
+                  console.log("changeValue:", changeValue)
+                  this.handleChangeValue("mobile", changeValue)
+                } }
+              />
             </div>
           </div>
           <div className="form-group">
@@ -57,6 +62,14 @@ export class Login extends Component {
         </form>
       </div>
     )
+  }
+  handleChangeValue(changeName, changeValue) {
+    console.log("changeName", changeName)
+    console.log("changeName:", changeValue)
+    this.props.loginActions.changeValue()
+    // const changeObj = {}
+    // changeObj[changeName] = changeValue
+    // this.props.(changeObj)
   }
 }
 

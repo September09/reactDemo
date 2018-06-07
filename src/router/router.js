@@ -2,8 +2,6 @@ import React from "react"
 import { Route, hashHistory } from "react-router"
 import { HashRouter } from "react-router-dom"
 import App from "../App"
-// import Page1 from './page1';
-// import Page2 from './page2';
 import Home from "../containers/Home"
 import Stuff from "../containers/Stuff"
 import Contact from "../containers/Contact"
