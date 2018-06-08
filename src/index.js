@@ -15,7 +15,6 @@ import RouterMap from './router/router';
 
 const store = configureStore();
 
-console.log('store:',store);
 const renderDom = () => {
   render(
     <AppContainer>

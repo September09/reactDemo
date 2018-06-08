@@ -34,7 +34,6 @@ export default function loginIn(state = initialState, action) {
       name: "",
     }
   default:
-    console.log("state111111:", state)
     return state
   }
 }

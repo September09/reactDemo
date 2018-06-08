@@ -6,7 +6,7 @@ import fetch from "cross-fetch"
 
 // 模拟用户信息
 const initialState = {
-  user: "",
+  userName: "",
   password: ""
 }
 
@@ -31,25 +31,31 @@ function loginError(isSuccess) {
 }
 
 export function login() {
-  console.log("登录方法")
   return dispatch => {
     dispatch(isLogining())
     // 模拟用户登录
     const result = fetch("http://localhost:9090/")
       .then(()=>{
         dispatch(loginSuccess(true))
-      }).catch((e)=>{
-        console.log("e", e)
+      }).catch(()=>{
         dispatch(loginError(false))
       })
     console.log(result)
   }
 }
 
-export function changeValue(state = initialState) {
-  console.log("9999999", state)
+export function changeUserValue(state = initialState) {
   return {
-    type: actionTypes.CHANGE_VALUE,
+    type: actionTypes.CHANGE_USER_VALUE,
+    userName: state,
   }
 }
+
+export function changePwdValue(state = initialState) {
+  return {
+    type: actionTypes.CHANGE_PWD_VALUE,
+    password: state
+  }
+}
+
 

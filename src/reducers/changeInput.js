@@ -10,15 +10,12 @@ const initialState = {
 }
 
 export default function ChangeValue(state = initialState, action) {
-  console.log(222222, state)
   switch (action.type) {
-  case actionTypes.CHANGE_VALUE:
-    return {
-      ...state,
-      user: state.name
-    }
+  case actionTypes.CHANGE_USER_VALUE:
+    return action.userName
+  case actionTypes.CHANGE_PWD_VALUE:
+    return action.password
   default:
-    console.log("33333333:", state)
     return state
   }
 }

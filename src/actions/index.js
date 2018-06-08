@@ -6,4 +6,5 @@ export const LOGIN_IN_DOING = "LOGIN_IN_DOING"
 export const LOGIN_IN_DONE = "LOGIN_IN_DONE"
 export const LOGIN_IN_ERROR = "LOGIN_IN_ERROR"
 
-export const CHANGE_VALUE = "CHANGE_VALUE"
+export const CHANGE_USER_VALUE = "CHANGE_USER_VALUE"
+export const CHANGE_PWD_VALUE = "CHANGE_PWD_VALUE"

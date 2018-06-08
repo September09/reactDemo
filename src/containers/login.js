@@ -19,16 +19,14 @@ export class Login extends Component {
   }
   shouldComponentUpdate(nextProps) {
     // 登录完成,切成功登录
-    console.log("nextState:", nextProps)
+    // console.log("nextState:", nextProps)
     if (nextProps.status === "登陆成功" && nextProps.isSuccess) {
-      console.log("here")
       this.props.navigation.dispatch(resetAction)
       return false
     }
     return true
   }
   render() {
-    console.log("this.props:", this.props)
     return (
       <div className="loginWrapper">
         <div className="title">登录测试</div>
@@ -40,7 +38,7 @@ export class Login extends Component {
                 onChange={ (e) => {
                   // console.log("changeValue:", e.target.value)
                   // this.props.loginActions.changeValue("user", e.target.value)
-                  this.props.loginActions.changeValue({user: e.target.value})
+                  this.props.loginActions.changeUserValue({"userName": e.target.value})
                 } }
               />
             </div>
@@ -49,9 +47,9 @@ export class Login extends Component {
             <label htmlFor="loginpassword" className="col20 fl">密码</label>
             <div className="col80 fl">
               <input type="password" className="inputStyle" id="loginpassword" placeholder="请输入密码"
-                onChange={ () => {
+                onChange={ (e) => {
                   // console.log("changeValue:", e.target.value)
-                  // this.props.loginActions.changeValue("password", e.target.value)
+                  this.props.loginActions.changePwdValue({"password": e.target.value})
                 } }
               />
             </div>
@@ -60,23 +58,15 @@ export class Login extends Component {
             <div className="btnWrapper">
               <button type="button" className="btn btn-default loginBtn" id="info_submit"
                 onClick={()=> {
-                  console.log(66666666)
                   this.props.loginActions.login()
                 }}>{this.props.loginStatus.loginStatus}</button>
             </div>
           </div>
         </form>
-        <div className="form-group">登录用户为：{this.props.user.user}</div>
+        <div className="form-group">登录用户为：{this.props.user.userName}</div>
       </div>
     )
   }
-  // handleChangeValue(changeName, changeValue) {
-  //   const changeObj = {}
-  //   changeObj[changeName] = changeValue
-  //   console.log("changeObj[changeName]:", changeObj[changeName])
-  //   console.log("changeObj:", changeObj)
-  //   this.props.loginActions.changeValue(changeObj)
-  // }
 }
 
 
