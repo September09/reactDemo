@@ -5,18 +5,20 @@
 import * as actionTypes from "../actions/index"
 
 const initialState = {
-  name: "",
+  user: "",
+  password: "",
 }
 
 export default function ChangeValue(state = initialState, action) {
+  console.log(222222, state)
   switch (action.type) {
   case actionTypes.CHANGE_VALUE:
     return {
       ...state,
-      name: "",
+      user: state.name
     }
   default:
-    console.log("state111111:", state)
+    console.log("33333333:", state)
     return state
   }
 }

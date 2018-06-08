@@ -17,9 +17,9 @@ export class Login extends Component {
   componentDidMount() {
 
   }
-  shouldComponentUpdate(nextProps, nextState) {
+  shouldComponentUpdate(nextProps) {
     // 登录完成,切成功登录
-    console.log("nextState:", nextState)
+    console.log("nextState:", nextProps)
     if (nextProps.status === "登陆成功" && nextProps.isSuccess) {
       console.log("here")
       this.props.navigation.dispatch(resetAction)
@@ -37,9 +37,10 @@ export class Login extends Component {
             <label htmlFor="loginusername" className="col20 fl">用户名</label>
             <div className="col80 fl">
               <input type="text" className="inputStyle" id="loginusername" placeholder="请输入用户名"
-                onChange={ (changeValue) => {
-                  console.log("changeValue:", changeValue)
-                  this.handleChangeValue("mobile", changeValue)
+                onChange={ (e) => {
+                  // console.log("changeValue:", e.target.value)
+                  // this.props.loginActions.changeValue("user", e.target.value)
+                  this.props.loginActions.changeValue({user: e.target.value})
                 } }
               />
             </div>
@@ -47,7 +48,12 @@ export class Login extends Component {
           <div className="form-group">
             <label htmlFor="loginpassword" className="col20 fl">密码</label>
             <div className="col80 fl">
-              <input type="password" className="inputStyle" id="loginpassword" placeholder="请输入密码" />
+              <input type="password" className="inputStyle" id="loginpassword" placeholder="请输入密码"
+                onChange={ () => {
+                  // console.log("changeValue:", e.target.value)
+                  // this.props.loginActions.changeValue("password", e.target.value)
+                } }
+              />
             </div>
           </div>
           <div className="form-group">
@@ -60,22 +66,23 @@ export class Login extends Component {
             </div>
           </div>
         </form>
+        <div className="form-group">登录用户为：{this.props.user.user}</div>
       </div>
     )
   }
-  handleChangeValue(changeName, changeValue) {
-    console.log("changeName", changeName)
-    console.log("changeName:", changeValue)
-    this.props.loginActions.changeValue()
-    // const changeObj = {}
-    // changeObj[changeName] = changeValue
-    // this.props.(changeObj)
-  }
+  // handleChangeValue(changeName, changeValue) {
+  //   const changeObj = {}
+  //   changeObj[changeName] = changeValue
+  //   console.log("changeObj[changeName]:", changeObj[changeName])
+  //   console.log("changeObj:", changeObj)
+  //   this.props.loginActions.changeValue(changeObj)
+  // }
 }
 
 
 const mapStateToProps = state => ({
-  loginStatus: state.loginIn
+  loginStatus: state.loginIn,
+  user: state.changeInput
 })
 
 function mapDispatchToProps(dispatch) {

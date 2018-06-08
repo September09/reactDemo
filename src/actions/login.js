@@ -5,10 +5,10 @@ import * as actionTypes from "./index"
 import fetch from "cross-fetch"
 
 // 模拟用户信息
-// const user = {
-//   name: "",
-//   age: 24,
-// }
+const initialState = {
+  user: "",
+  password: ""
+}
 
 function isLogining() {
   return {
@@ -16,11 +16,10 @@ function isLogining() {
   }
 }
 
-function loginSuccess(isSuccess, name) {
+function loginSuccess(isSuccess) {
   console.log(isSuccess, "success")
   return {
-    type: actionTypes.LOGIN_IN_DONE,
-    name: name,
+    type: actionTypes.LOGIN_IN_DONE
   }
 }
 
@@ -31,30 +30,26 @@ function loginError(isSuccess) {
   }
 }
 
-export function login(name) {
+export function login() {
   console.log("登录方法")
   return dispatch => {
     dispatch(isLogining())
     // 模拟用户登录
     const result = fetch("http://localhost:9090/")
-      .then((res)=>{
-        console.log("res111", res)
-        console.log("res111", name)
-        dispatch(loginSuccess(true, name))
+      .then(()=>{
+        dispatch(loginSuccess(true))
       }).catch((e)=>{
         console.log("e", e)
         dispatch(loginError(false))
       })
-
-    console.log("result3333", result)
+    console.log(result)
   }
 }
 
-export function changeValue(user) {
+export function changeValue(state = initialState) {
+  console.log("9999999", state)
   return {
     type: actionTypes.CHANGE_VALUE,
-    name: user,
   }
 }
-
 
