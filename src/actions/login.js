@@ -2,7 +2,7 @@
  * Created by september on 2018/6/7.
  */
 import * as actionTypes from "./index"
-import fetch from "cross-fetch"
+import fetchPost from "../utils/post"
 
 // 模拟用户信息
 const initialState = {
@@ -34,12 +34,17 @@ export function login() {
   return dispatch => {
     dispatch(isLogining())
     // 模拟用户登录
-    const result = fetch("http://localhost:9090/")
-      .then(()=>{
-        dispatch(loginSuccess(true))
-      }).catch(()=>{
-        dispatch(loginError(false))
-      })
+    const result = fetchPost("http://localhost:3110/", {
+      username: 1111111,
+      password: 83094037
+    })
+    result.then(res =>{
+      console.log("res", res)
+      dispatch(loginSuccess(true))
+    }).catch(json =>{
+      console.log("json", json)
+      dispatch(loginError(false))
+    })
     console.log(result)
   }
 }
