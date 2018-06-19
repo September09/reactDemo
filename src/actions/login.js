@@ -1,14 +1,15 @@
 /**
  * Created by september on 2018/6/7.
  */
+import { createAction } from "redux-actions"
 import * as actionTypes from "./index"
 import HttpUtil from "../utils/httpUtils"
 
 // 模拟用户信息
-const initialState = {
-  userName: "",
-  password: ""
-}
+// const initialState = {
+//   userName: "",
+//   password: ""
+// }
 
 function isLogining() {
   return {
@@ -30,13 +31,14 @@ function loginError(isSuccess) {
   }
 }
 
-export function login() {
+export function login(userName, password) {
+  console.log(333333)
   return dispatch => {
     dispatch(isLogining())
     // 模拟用户登录
     const result = HttpUtil.postData("/user/login", {
-      username: "1111112",
-      password: "83094037"
+      userName: userName,
+      password: password
     })
     result.then(res =>{
       console.log("res", res)
@@ -49,18 +51,6 @@ export function login() {
   }
 }
 
-export function changeUserValue(state = initialState) {
-  return {
-    type: actionTypes.CHANGE_USER_VALUE,
-    userName: state,
-  }
-}
-
-export function changePwdValue(state = initialState) {
-  return {
-    type: actionTypes.CHANGE_PWD_VALUE,
-    password: state
-  }
-}
+export const updateBindMobileState = createAction("updateBindMobileState", payload => payload)
 
 
