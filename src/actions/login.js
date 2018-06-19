@@ -2,7 +2,7 @@
  * Created by september on 2018/6/7.
  */
 import * as actionTypes from "./index"
-import fetchPost from "../utils/post"
+import HttpUtil from "../utils/httpUtils"
 
 // 模拟用户信息
 const initialState = {
@@ -34,9 +34,9 @@ export function login() {
   return dispatch => {
     dispatch(isLogining())
     // 模拟用户登录
-    const result = fetchPost("http://localhost:3110/", {
-      username: 1111111,
-      password: 83094037
+    const result = HttpUtil.postData("/user/login", {
+      username: "1111112",
+      password: "83094037"
     })
     result.then(res =>{
       console.log("res", res)
