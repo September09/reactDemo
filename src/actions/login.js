@@ -26,22 +26,19 @@ function loginError(isSuccess) {
 }
 
 export function login(userName, password) {
-  console.log(333333)
   return dispatch => {
     dispatch(isLogining())
     // 模拟用户登录
-    const result = HttpUtil.postData("/user/login", {
+    HttpUtil.postData("/user/login", {
       userName: userName,
       password: password
-    })
-    result.then(res =>{
-      console.log("res", res)
+    }).then(res =>{
+      console.log("res", res.json())
       dispatch(loginSuccess(true))
     }).catch(json =>{
       console.log("json", json)
       dispatch(loginError(false))
     })
-    console.log(result)
   }
 }
 
