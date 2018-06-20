@@ -7,7 +7,6 @@ import { bindActionCreators } from "redux"
 import { connect } from "react-redux"
 import "../style/common.scss"
 import "../style/register.scss"
-
 import * as loginActions from "../actions/login"
 
 
@@ -29,7 +28,6 @@ export class Login extends Component {
     return true
   }
   render() {
-    console.log("this.props:", this.props)
     return (
       <div className="loginWrapper">
         <div className="title">登录测试</div>
@@ -38,14 +36,7 @@ export class Login extends Component {
             <label htmlFor="loginusername" className="col20 fl">用户名</label>
             <div className="col80 fl">
               <input type="text" className="inputStyle" id="loginusername" placeholder="请输入用户名"
-                // onChange={ (e) => {
-                //   // console.log("changeValue:", e.target.value)
-                //   // this.props.loginActions.changeValue("user", e.target.value)
-                //   this.props.loginActions.changeUserValue({"userName": e.target.value})
-                // } }
                 onChange={ (e) => {this.changeHandle("userName", e.target.value) } }
-
-                // value={this.state.username}
               />
             </div>
           </div>
@@ -53,10 +44,6 @@ export class Login extends Component {
             <label htmlFor="loginpassword" className="col20 fl">密码</label>
             <div className="col80 fl">
               <input type="password" className="inputStyle" id="loginpassword" placeholder="请输入密码"
-                // onChange={ (e) => {
-                //   // console.log("changeValue:", e.target.value)
-                //   this.props.loginActions.changePwdValue({"password": e.target.value})
-                // } }
                 onChange={ (e) => {this.changeHandle("password", e.target.value) } }
               />
             </div>
@@ -64,42 +51,29 @@ export class Login extends Component {
           <div className="form-group">
             <div className="btnWrapper">
               <button type="button" className="btn btn-default loginBtn" id="info_submit"
-                // onClick={()=> {
-                //   this.props.loginActions.login()
-                // }}
                 onClick={ this.clickHandle.bind(this) }
-              >登錄</button>
+              >{this.props.loginIn.loginStatus}</button>
             </div>
           </div>
         </form>
+        <div className="form-group">登录用户为：{this.props.changeInput.userName}</div>
       </div>
     )
   }
   changeHandle(changeName, changeValue) {
     const changeObj = {}
     changeObj[changeName] = changeValue
-    console.log("changeObj", changeObj)
     this.props.loginActions.updateBindMobileState(changeObj)
   }
+
   clickHandle() {
-    console.log(44444)
-    const {userName, password} = this.state
-    console.log("userName", userName)
-    console.log(password)
+    const {userName, password} = this.props.changeInput
     this.props.loginActions.login(userName, password)
-    // this.props.submitMobileInfo({mobile, qqNumber}, () => {
-    //     Toast.info("绑定成功")
-    //     setTimeout(() => {
-    //         this.props.history.push(Utils.turnToPage("/cash"))
-    //     }, 2000)
-    // })
   }
 }
 
-
 const mapStateToProps = state => {
-  const { bindMobile } = state
-  return { ...bindMobile }
+  return { ...state }
 }
 
 function mapDispatchToProps(dispatch) {

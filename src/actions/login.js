@@ -5,12 +5,6 @@ import { createAction } from "redux-actions"
 import * as actionTypes from "./index"
 import HttpUtil from "../utils/httpUtils"
 
-// 模拟用户信息
-// const initialState = {
-//   userName: "",
-//   password: ""
-// }
-
 function isLogining() {
   return {
     type: actionTypes.LOGIN_IN_DOING
