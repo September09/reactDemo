@@ -11,6 +11,7 @@ import Login from "../containers/login"
 
 const RouteMap = () =>
   <HashRouter history={hashHistory}>
+
     <div className="container">
       <Route exact path="/" component={App} />
       <Route path="/home" component={Home} />

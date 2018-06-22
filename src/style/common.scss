@@ -1,15 +1,15 @@
-html {
+html, body {
   padding: 0;
   margin: 0;
   width: 100%;
   height: 100%;
-  background: rgba(122,180,255,255); /* For browsers that do not support gradients */
-  background: -webkit-linear-gradient(top,rgba(122,180,255,255),rgba(255,122,122,255)); /*Safari 5.1-6*/
-  background: -o-linear-gradient(bottom,rgba(122,180,255,255),rgba(255,122,122,255)); /*Opera 11.1-12*/
-  background: -moz-linear-gradient(bottom,rgba(122,180,255,255),rgba(255,122,122,255)); /*Fx 3.6-15*/
-  background: linear-gradient(to bottom, rgba(122,180,255,255), rgba(255,122,122,255)); /*Standard*/
+  background: rgba(255,180,255,255); /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(top,rgba(255,180,255,255),rgba(255,122,122,255)); /*Safari 5.1-6*/
+  background: -o-linear-gradient(bottom,rgba(255,180,255,255),rgba(255,122,122,255)); /*Opera 11.1-12*/
+  background: -moz-linear-gradient(bottom,rgba(255,180,255,255),rgba(255,122,122,255)); /*Fx 3.6-15*/
+  background: linear-gradient(to bottom, rgba(255,180,255,255), rgba(255,122,122,255)); /*Standard*/
 }
-body, #app, .container {
+#app, .container {
   padding: 0;
   margin: 0;
   width: 100%;
@@ -49,7 +49,6 @@ body, #app, .container {
 .containerWrapper {
   width: 100%;
   height: 100%;
-  position: relative;
 }
 
 .loginWrapper {
@@ -88,6 +87,18 @@ input::-webkit-input-placeholder {
 
 input:-ms-input-placeholder {
   text-align: left;
+}
+
+.header {
+  background-color: #f7f7f7;
+}
+
+.ant-layout-header .logo {
+  width: 12rem;
+  height: 3rem;
+  background: url('../assets/yyyy.png');
+  margin: 16px 24px 16px 0;
+  float: left;
 }
 
 

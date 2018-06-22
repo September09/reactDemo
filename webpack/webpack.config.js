@@ -89,6 +89,18 @@ module.exports = {
                     }
                 }
             ],
+        },
+        {
+            test: /\.(png|jpg|jpeg|gif)$/,
+            use: [
+                {
+                    loader: 'url-loader',
+                    options: {
+                        name:'[path][name].[ext]',
+                        limit: 25000
+                    }
+                }
+            ]
         }
     ],
   },

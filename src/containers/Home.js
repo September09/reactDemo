@@ -1,4 +1,5 @@
 import React from "react"
+import { Button } from "antd"
 
 const Home = () =>
   <div>
@@ -12,6 +13,7 @@ const Home = () =>
     </p>
 
     <p>Duis a turpis sed lacus dapibus elementum sed eu lectus.</p>
+    <Button>test</Button>
   </div>
 
 
