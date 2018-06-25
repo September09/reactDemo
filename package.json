@@ -14,7 +14,7 @@
   "author": "",
   "license": "ISC",
   "theme": {
-    "primary-color": "#1DA57A"
+    "primary-color": "#ff0"
   },
   "devDependencies": {
     "autoprefixer": "^8.5.2",

@@ -1,8 +1,9 @@
 import React from "react"
-import { Button } from "antd"
+import Header from "../components/header"
 
 const Home = () =>
   <div>
+    <Header defaultSelectedKeys="1"/>
     <h2>HELLO</h2>
     <p>Cras facilisis urna ornare ex volutpat, et
                     convallis erat elementum. Ut aliquam, ipsum vitae
@@ -13,7 +14,7 @@ const Home = () =>
     </p>
 
     <p>Duis a turpis sed lacus dapibus elementum sed eu lectus.</p>
-    <Button>test</Button>
+
   </div>
 
 

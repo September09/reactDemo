@@ -5,8 +5,9 @@
 import React, { Component } from "react"
 import { NavLink } from "react-router-dom"
 import "./style/common.scss"
-import { Layout, Menu } from "antd"
-const { Header, Content } = Layout
+import Header from "./components/header"
+import { Layout } from "antd"
+const { Content } = Layout
 
 export default class App extends Component {
   constructor(props) {
@@ -19,22 +20,8 @@ export default class App extends Component {
     return (
       <div className="containerWrapper">
         <Layout>
-          <Header style={{ position: "fixed", zIndex: 1, width: "100%" }}>
-            <div className="logo" />
-            <Menu
-              theme="dark"
-              mode="horizontal"
-              defaultSelectedKeys={["2"]}
-              style={{ lineHeight: "64px" }}
-            >
-              <Menu.Item key="1"><NavLink to="/home">Home</NavLink></Menu.Item>
-              <Menu.Item key="2"><NavLink to="/stuff">Stuff</NavLink></Menu.Item>
-              <Menu.Item key="3"><NavLink to="/contact">Contact</NavLink></Menu.Item>
-              <Menu.Item key="4"><NavLink to="/login">登录</NavLink></Menu.Item>
-              <Menu.Item key="5"><NavLink to="/register">注册</NavLink></Menu.Item>
-            </Menu>
-          </Header>
-          <Content style={{marginTop: '64px'}}>
+          <Header/>
+          <Content>
             <ul>
               <li><NavLink to="/home">Home</NavLink></li>
               <li><NavLink to="/stuff">Stuff</NavLink></li>
