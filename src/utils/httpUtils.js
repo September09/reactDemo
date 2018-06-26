@@ -81,10 +81,11 @@ export default class HttpUtil {
               if (response.status === 404) {
                 msg = "您访问的内容走丢了…"
               }
-              console.log(msg)
+              console.log("msg", msg)
               reject(HttpUtil.handleResult({ fetchStatus: "error", netStatus: response.status }, httpCustomerOpertion))
             }
           }).catch(e => {
+            console.log("catch")
             const errMsg = e.name + " " + e.message
             reject(HttpUtil.handleResult({ fetchStatus: "error", error: errMsg, netStatus: response.status }, httpCustomerOpertion))
           })
@@ -155,7 +156,7 @@ export default class HttpUtil {
     }
     const headers = {
       "Accept": "application/json",
-      "Content-Type": "application/json",
+      "Content-Type": "application/json;charset=utf-8",
     }
     return Object.assign({}, fetchCommonParams, { headers })
   }

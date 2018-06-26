@@ -53,11 +53,13 @@ export function login(userName, password) {
       userName: userName,
       password: password
     }).then(res =>{
-      console.log("res", res.json())
-      dispatch(loginSuccess(true))
-    }).catch(json =>{
-      console.log("json", json)
-      dispatch(loginError(false))
+      if (res.status === 0) {
+        console.log("res", res)
+        dispatch(loginSuccess(true))
+      } else {
+        console.log("res1", res)
+        dispatch(loginError(false))
+      }
     })
   }
 }
@@ -70,11 +72,13 @@ export function register(userName, password) {
       userName: userName,
       password: password
     }).then(res =>{
-      console.log("res", res.json())
-      dispatch(RegisterSuccess(true))
-    }).catch(json =>{
-      console.log("json", json)
-      dispatch(RegisterError(false))
+      if (res.status === 0) {
+        console.log("res", res)
+        dispatch(RegisterSuccess(true))
+      } else {
+        console.log("res", res)
+        dispatch(RegisterError(false))
+      }
     })
   }
 }
