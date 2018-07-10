@@ -6,7 +6,7 @@ const Contact = () =>
     <Header defaultSelectedKeys="3"/>
     <h2>GOT QUESTIONS?</h2>
     <p>The easiest thing to do is post on
-                    our <a href="https://github.com/huangche007">GitHub</a>.
+                    our <a href="https://github.com/September09/reactDemo">GitHub</a>.
     </p>
   </div>
 
