@@ -5,6 +5,8 @@ import React, { Component } from "react"
 import PureRenderMixin from "react-addons-pure-render-mixin"
 import { bindActionCreators } from "redux"
 import { connect } from "react-redux"
+import { Form, Icon, Input, Button, Checkbox } from "antd"
+const FormItem = Form.Item
 import "../style/common.scss"
 import "../style/register.scss"
 import * as loginActions from "../actions/login"
@@ -19,8 +21,6 @@ export class Login extends Component {
 
   }
   shouldComponentUpdate(nextProps) {
-    // 登录完成,切成功登录
-    // console.log("nextState:", nextProps)
     if (nextProps.status === "登陆成功" && nextProps.isSuccess) {
       this.props.navigation.dispatch(resetAction)
       return false
@@ -30,33 +30,27 @@ export class Login extends Component {
   render() {
     return (
       <div className="loginWrapper">
-        <div className="title">登录测试</div>
-        <form className="form-horizontal" id="loginForm">
-          <div className="form-group">
-            <label htmlFor="loginusername" className="col20 fl">用户名</label>
-            <div className="col80 fl">
-              <input type="text" className="inputStyle" id="loginusername" placeholder="请输入用户名"
-                onChange={ (e) => {this.changeHandle("userName", e.target.value) } }
-              />
-            </div>
-          </div>
-          <div className="form-group">
-            <label htmlFor="loginpassword" className="col20 fl">密码</label>
-            <div className="col80 fl">
-              <input type="password" className="inputStyle" id="loginpassword" placeholder="请输入密码"
-                onChange={ (e) => {this.changeHandle("password", e.target.value) } }
-              />
-            </div>
-          </div>
-          <div className="form-group">
-            <div className="btnWrapper">
-              <button type="button" className="btn btn-default loginBtn" id="info_submit"
-                onClick={ this.clickHandle.bind(this) }
-              >{this.props.loginIn.loginStatus}</button>
-            </div>
-          </div>
-        </form>
-        <div className="form-group">登录用户为：{this.props.changeInput.userName}</div>
+        <div className="title">登录</div>
+        <Form className="login-form">
+          <FormItem>
+            <Input prefix={<Icon type="user" style={{ color: "rgba(0,0,0,.25)" }} />} placeholder="Username"
+              onChange={ (e) => {this.changeHandle("userName", e.target.value) } }
+            />
+          </FormItem>
+          <FormItem>
+            <Input prefix={<Icon type="lock" style={{ color: "rgba(0,0,0,.25)" }} />} type="password" placeholder="Password"
+              onChange={ (e) => {this.changeHandle("password", e.target.value) } }
+            />
+          </FormItem>
+          <FormItem>
+            <Checkbox>Remember me</Checkbox>
+            <a className="login-form-forgot" href="">Forgot password</a>
+            <Button type="primary" htmlType="submit" className="login-form-button" onClick={ this.clickHandle.bind(this) }>
+              {this.props.loginIn.loginStatus}
+            </Button>
+            Or <a href="">register now!</a>
+          </FormItem>
+        </Form>
       </div>
     )
   }

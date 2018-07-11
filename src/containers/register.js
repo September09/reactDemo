@@ -6,7 +6,7 @@
 import React, { Component } from "react"
 import PureRenderMixin from "react-addons-pure-render-mixin"
 import { bindActionCreators } from "redux"
-import { Form, Icon, Input, Button } from "antd"
+import { Form, Icon, Input, Button, Checkbox } from "antd"
 import { connect } from "react-redux"
 import "../style/common.scss"
 import "../style/register.scss"
@@ -34,10 +34,11 @@ export class Register extends Component {
     return (
       <div className="loginWrapper">
         <div className="title">注册</div>
-        <Form layout="inline">
+        <Form className="login-form">
           <FormItem>
             <Input prefix={<Icon type="user" style={{ color: "rgba(0,0,0,.25)" }} />} placeholder="Username"
-              onChange={ (e) => {this.changeHandle("userName", e.target.value) } }/>
+              onChange={ (e) => {this.changeHandle("userName", e.target.value) } }
+            />
           </FormItem>
           <FormItem>
             <Input prefix={<Icon type="lock" style={{ color: "rgba(0,0,0,.25)" }} />} type="password" placeholder="Password"
@@ -45,16 +46,14 @@ export class Register extends Component {
             />
           </FormItem>
           <FormItem>
-            <Button
-              type="primary"
-              htmlType="submit"
-              onClick={ this.clickHandle.bind(this) }
-            >
-              {this.props.register.registerStatus}
+            <Checkbox>Remember me</Checkbox>
+            <a className="login-form-forgot" href="">Forgot password</a>
+            <Button type="primary" htmlType="submit" className="login-form-button" onClick={ this.clickHandle.bind(this) }>
+              {this.props.loginIn.registerStatus}
             </Button>
+            Or <a href="">login now!</a>
           </FormItem>
         </Form>
-        <div className="form-group">登录用户为：{this.props.changeInput.userName}</div>
       </div>
     )
   }
