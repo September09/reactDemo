@@ -11,7 +11,6 @@ const initialState = {
 
 export default handleActions({
   userInfoState: (state = initialState, { payload }) => {
-    console.log(999999999)
     return {
       ...state,
       ...payload

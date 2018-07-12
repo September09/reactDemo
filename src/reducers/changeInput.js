@@ -10,9 +10,7 @@ const initialState = {
 }
 
 export default handleActions({
-
   updateBindMobileState: (state = initialState, { payload }) => {
-    console.log(999999999)
     return {
       ...state,
       ...payload

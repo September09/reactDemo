@@ -7,6 +7,7 @@ import * as actionTypes from "../actions/index"
 const initialState = {
   loginStatus: "Login In",
   isSuccess: false,
+  data: {}
 }
 
 export default function loginIn(state = initialState, action) {
@@ -22,6 +23,7 @@ export default function loginIn(state = initialState, action) {
       ...state,
       loginStatus: "Login Success",
       isSuccess: true,
+      data: action.data
     }
   case actionTypes.LOGIN_IN_ERROR:
     return {

@@ -4,6 +4,7 @@
 
 import "whatwg-fetch"
 const timeout = 10000
+import { message } from "antd"
 
 export default class HttpUtil {
   /**
@@ -30,7 +31,7 @@ export default class HttpUtil {
     const method = "POST"
     const body = JSON.stringify(paramsObj)
     const fetchParams = Object.assign({}, { method, body }, this.getHeaders())
-    return HttpUtil.HandleResult(url, fetchParams, httpCustomerOpertion)
+    return HttpUtil.handleFetchData(url, fetchParams, httpCustomerOpertion)
   }
   /**
      * 发送fetch请求
@@ -38,13 +39,14 @@ export default class HttpUtil {
      * @param fetchParams
      * @returns {Promise}
      */
-  static HandleResult(fetchUrl, fetchParams, httpCustomerOpertion) {
+  static handleFetchData(fetchUrl, fetchParams, httpCustomerOpertion) {
     // 如果是照片的base64数据，ios系统会卡死
     // TODO: debugPanel不使用react
     const logParams = { ...fetchParams }
     if (logParams.body && logParams.body.length > 1024) {
       logParams.body = logParams.body.substr(0, 1024) + "..."
     }
+    console.log(fetchParams.method, fetchUrl, logParams)
     const { isShowLoading } = httpCustomerOpertion
     if (isShowLoading) {
       HttpUtil.showLoading()
@@ -69,8 +71,11 @@ export default class HttpUtil {
           httpCustomerOpertion.isFetched = true
           response.json().then(jsonBody => {
             if (response.ok) {
+              console.log(response)
+              console.log(jsonBody.status)
               if (jsonBody.status) {
                 // 业务逻辑报错
+                console.log(3333333)
                 reject(HttpUtil.handleResult(jsonBody, httpCustomerOpertion))
               } else {
                 resolve(HttpUtil.handleResult(jsonBody, httpCustomerOpertion))
@@ -115,9 +120,10 @@ export default class HttpUtil {
      * ps: 通过 this.isHandleError 来判断是否需要有fetch方法来统一处理错误信息
      */
   static handleResult(result, httpCustomerOpertion) {
+    console.log(httpCustomerOpertion)
     if (result.status && httpCustomerOpertion.isHandleResult === true) {
       const errMsg = result.msg || result.message || "服务器开小差了，稍后再试吧"
-      console.log(`${errMsg}（${result.status}）`)
+      message.error(`${errMsg}（${result.status}）`)
     }
     return result
   }
@@ -165,6 +171,7 @@ export default class HttpUtil {
      * 添加loadding状态
      */
   static showLoading() {
+    // message.loading("loading...", 3)
     console.log("loading.....")
   }
 

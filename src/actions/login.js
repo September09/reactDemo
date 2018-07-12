@@ -11,10 +11,11 @@ function isLogining() {
   }
 }
 
-function loginSuccess(isSuccess) {
+function loginSuccess(isSuccess, res) {
   console.log(isSuccess, "success")
   return {
-    type: actionTypes.LOGIN_IN_DONE
+    type: actionTypes.LOGIN_IN_DONE,
+    data: res
   }
 }
 
@@ -55,12 +56,12 @@ export function login(userName, password) {
     }).then(res =>{
       if (res.status === 0) {
         console.log("res", res)
-        dispatch(loginSuccess(true))
-      } else {
-        console.log("res1", res)
-        dispatch(loginError(false))
+        dispatch(loginSuccess(true, res))
       }
-    })
+    }).catch(
+      // console.log("err", err)
+      dispatch(loginError(false))
+    )
   }
 }
 
