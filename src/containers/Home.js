@@ -61,17 +61,17 @@ class Home extends React.Component {
             key="userName"
           />
           <Column
-            title="password"
+            title="Password"
             dataIndex="password"
             key="password"
           />
           <Column
-            title="create_time"
+            title="createTime"
             dataIndex="create_time"
             key="create_time"
           />
           <Column
-            title="_id"
+            title="Id"
             dataIndex="_id"
             key="_id"
           />

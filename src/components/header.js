@@ -5,18 +5,18 @@
 import React from "react"
 import PureRenderMixin from "react-addons-pure-render-mixin"
 import { NavLink } from "react-router-dom"
-import { Menu } from "antd"
+import { Menu, Layout } from "antd"
+const { Header } = Layout
 import "../style/header.scss"
 
-class Header extends React.Component {
+class HeaderPlus extends React.Component {
   constructor(props, context) {
     super(props, context)
     this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this)
   }
   render() {
     return (
-      <div className="header">
-        <div className="logo col20 fl">logo</div>
+      <Header style={{ background: "#fff", padding: 0 }} >
         <div className="middle col60 fl">
           <Menu
             theme="primary-color"
@@ -29,7 +29,7 @@ class Header extends React.Component {
             <Menu.Item key="3"><NavLink to="/contact">Contact</NavLink></Menu.Item>
           </Menu>
         </div>
-        <div className="right col20 fl">
+        <div className="right col40 fl">
           <Menu
             theme="primary-color"
             mode="horizontal"
@@ -40,9 +40,9 @@ class Header extends React.Component {
             <Menu.Item key="5"><NavLink to="/register">注册</NavLink></Menu.Item>
           </Menu>
         </div>
-      </div>
+      </Header>
     )
   }
 }
 
-export default Header
+export default HeaderPlus

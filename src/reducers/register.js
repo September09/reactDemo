@@ -5,7 +5,7 @@
 import * as actionTypes from "../actions/index"
 
 const initialState = {
-  registerStatus: "未注册",
+  registerStatus: "Register",
   isSuccess: false,
 }
 
@@ -14,19 +14,19 @@ export default function register(state = initialState, action) {
   case actionTypes.REGISTER_IN_DOING:
     return {
       ...state,
-      registerStatus: "正在注册",
+      registerStatus: "Register Ing",
       isSuccess: false,
     }
   case actionTypes.REGISTER_IN_DONE:
     return {
       ...state,
-      registerStatus: "注册成功",
+      registerStatus: "Register Success",
       isSuccess: true,
     }
   case actionTypes.REGISTER_IN_ERROR:
     return {
       ...state,
-      registerStatus: "注册出错",
+      registerStatus: "Register Error",
       isSuccess: true,
     }
   default:

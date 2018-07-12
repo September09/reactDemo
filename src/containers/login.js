@@ -48,7 +48,7 @@ export class Login extends Component {
             <Button type="primary" htmlType="submit" className="login-form-button" onClick={ this.clickHandle.bind(this) }>
               {this.props.loginIn.loginStatus}
             </Button>
-            Or <a href="">register now!</a>
+            Or <a href="#/register">register now!</a>
           </FormItem>
         </Form>
       </div>

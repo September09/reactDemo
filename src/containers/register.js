@@ -49,9 +49,9 @@ export class Register extends Component {
             <Checkbox>Remember me</Checkbox>
             <a className="login-form-forgot" href="">Forgot password</a>
             <Button type="primary" htmlType="submit" className="login-form-button" onClick={ this.clickHandle.bind(this) }>
-              {this.props.loginIn.registerStatus}
+              {this.props.register.registerStatus}
             </Button>
-            Or <a href="">login now!</a>
+            Or <a href="#/login">login now!</a>
           </FormItem>
         </Form>
       </div>
