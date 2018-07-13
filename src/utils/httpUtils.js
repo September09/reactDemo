@@ -164,7 +164,7 @@ export default class HttpUtil {
     const headers = {
       "Accept": "application/json",
       "Content-Type": "application/json;charset=utf-8",
-      "Authorization": localStorage.getItem('token') || null,
+      "Authorization": localStorage.getItem("token") || null,
     }
     return Object.assign({}, fetchCommonParams, { headers })
   }

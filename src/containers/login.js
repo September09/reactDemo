@@ -5,7 +5,7 @@ import React, { Component } from "react"
 import PureRenderMixin from "react-addons-pure-render-mixin"
 import { bindActionCreators } from "redux"
 import { connect } from "react-redux"
-import { Form, Icon, Input, Button, Checkbox } from "antd"
+import { Form, Icon, Input, Button, Checkbox, message } from "antd"
 const FormItem = Form.Item
 import "../style/common.scss"
 import "../style/register.scss"
@@ -28,6 +28,7 @@ export class Login extends Component {
     return true
   }
   render() {
+    console.log("1111", this.props)
     return (
       <div className="loginWrapper">
         <div className="title">登录</div>
@@ -62,7 +63,14 @@ export class Login extends Component {
 
   clickHandle() {
     const {userName, password} = this.props.changeInput
-    this.props.loginActions.login(userName, password)
+    this.props.loginActions.login({userName, password}, (result) => {
+      message.success("login success")
+      localStorage.setItem("token", result.token)
+      this.props.loginActions.loginIn({user: result.userName})
+      setTimeout(() => {
+        this.props.history.push("/home")
+      }, 2000)
+    })
   }
 }
 

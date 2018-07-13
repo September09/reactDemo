@@ -1,37 +1,21 @@
 /**
  * Created by september on 2018/6/7.
  */
-
-import * as actionTypes from "../actions/index"
+import { handleActions } from "redux-actions"
+// import * as actionTypes from "../actions/index"
 
 const initialState = {
   loginStatus: "Login In",
   isSuccess: false,
-  data: {}
+  user: ""
 }
 
-export default function loginIn(state = initialState, action) {
-  switch (action.type) {
-  case actionTypes.LOGIN_IN_DOING:
+export default handleActions({
+  loginIn: (state = initialState, { payload }) => {
     return {
       ...state,
-      loginStatus: "Login Ing",
-      isSuccess: false,
+      ...payload
     }
-  case actionTypes.LOGIN_IN_DONE:
-    return {
-      ...state,
-      loginStatus: "Login Success",
-      isSuccess: true,
-      data: action.data
-    }
-  case actionTypes.LOGIN_IN_ERROR:
-    return {
-      ...state,
-      loginStatus: "Login Error",
-      isSuccess: true,
-    }
-  default:
-    return state
   }
-}
+}, initialState)
+
