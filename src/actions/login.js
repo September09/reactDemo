@@ -56,6 +56,7 @@ export function login(userName, password) {
     }).then(res =>{
       if (res.status === 0) {
         console.log("res", res)
+        localStorage.setItem('token', res.token)
         dispatch(loginSuccess(true, res))
       }
     }).catch(

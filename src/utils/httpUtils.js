@@ -121,6 +121,7 @@ export default class HttpUtil {
      */
   static handleResult(result, httpCustomerOpertion) {
     console.log(httpCustomerOpertion)
+    console.log(result)
     if (result.status && httpCustomerOpertion.isHandleResult === true) {
       const errMsg = result.msg || result.message || "服务器开小差了，稍后再试吧"
       message.error(`${errMsg}（${result.status}）`)
@@ -163,6 +164,7 @@ export default class HttpUtil {
     const headers = {
       "Accept": "application/json",
       "Content-Type": "application/json;charset=utf-8",
+      "Authorization": localStorage.getItem('token') || null,
     }
     return Object.assign({}, fetchCommonParams, { headers })
   }

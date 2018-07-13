@@ -6,7 +6,7 @@ import { handleActions } from "redux-actions"
 // import * as actionTypes from "../actions/index"
 
 const initialState = {
-  "data": {}
+  "data": []
 }
 
 export default handleActions({
