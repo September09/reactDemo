@@ -8,6 +8,7 @@
     "dev": "node bin/dev-server",
     "build": "npm run clean && webpack --config webpack/webpack.prod.config.js",
     "devbuild": "npm run clean && webpack --config webpack/webpack.dev.config.js",
+    "testDev": "webpack --config webpack.config.js --progress --colors",
     "clean": "rimraf dist",
     "fix": "eslint src/ --fix"
   },

@@ -1,0 +1,26 @@
+
+.cashContainer {
+  background-color:  #3B3E65;
+  width: 100%;
+  height: 7.6rem;
+  color: #fff;
+  font-weight: 100;
+  .mostCash {
+    height: 2rem;
+    line-height: 2rem;
+    padding: 0 0.75rem;
+    color: white;
+    opacity: 0.5;
+    .mostLeft {
+      float: left;
+    }
+    .payPlan {
+      float: right;
+    }
+  }
+  .allCash {
+    .am-list-item.am-input-item {
+      background-color:  #3B3E65;
+    }
+  }
+}
