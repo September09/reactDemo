@@ -7,20 +7,18 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
-import { Provider } from 'react-redux'
+// import { Provider } from 'react-redux'
 import 'babel-polyfill';
 import { browserHistory } from 'react-router'
-import configureStore from './store/index'
+// import configureStore from './store/index'
 import RouterMap from './router/router';
 
-const store = configureStore();
+// const store = configureStore();
 
 const renderDom = () => {
   render(
     <AppContainer>
-        <Provider store={store}>
-            <RouterMap />
-        </Provider>
+        <RouterMap />
     </AppContainer>,
     document.getElementById('app'),
   );

@@ -1,95 +1,484 @@
+/*��Ļ����*/
+@media screen and (max-width: 330px) {
+  html body {
+    font-size: 71%;
+  }
+}
+@media screen and (min-width: 330px) and (max-width: 350px) {
+  html body {
+    font-size: 75%;
+  }
+}
+
+/* �д����ֻ�����iPhone6 */
+@media screen and (min-width: 351px) and (max-width: 400px) {
+  html body {
+    font-size: 81.3%;
+  }
+}
+
+/* �������ֻ�����iPhone6 Plus */
+@media screen and (min-width: 401px) and (max-width: 450px) {
+  html body {
+    font-size: 87.5%;
+  }
+}
+
+/* ƽ���ֻ��ֻ����ߴ�����ֻ���Сƽ��֮�� */
+@media screen and (min-width: 451px)  and (max-width: 480px) {
+  html body {
+    font-size: 93.8%;
+  }
+}
+
+/* ƽ���ֻ��ֻ����ߴ�����ֻ���Сƽ��֮�� */
+@media screen and (min-width: 481px) {
+  html body {
+    font-size: 100%;
+  }
+}
+
+/* �ر������С�Զ���������*/
+
 html, body {
-  padding: 0;
+  width: 100%;
+  //max-width: 500px;
+  margin: 0 auto;
+  position: relative;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  background: #eee;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+div, span, img, ul, li, a, p {
+  //max-width: 500px;
+}
+
+/**?�������߾�?**/
+/*?structural?elements?�ṹԪ��?*/
+/*?list?elements?�б�Ԫ��?*/
+/*?text?formatting?elements?�ı���ʽԪ��?*/
+/*?form?elements?��Ԫ��?*/
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote,
+dl, dt, dd, ul, ol, li,
+pre,
+form, fieldset, legend, button, input, textarea,
+th, td {
   margin: 0;
-  width: 100%;
-  height: 100%;
-  //background: rgba(255,180,255,255); /* For browsers that do not support gradients */
-  //background: -webkit-linear-gradient(top,rgba(255,180,255,255),rgba(255,122,122,255)); /*Safari 5.1-6*/
-  //background: -o-linear-gradient(bottom,rgba(255,180,255,255),rgba(255,122,122,255)); /*Opera 11.1-12*/
-  //background: -moz-linear-gradient(bottom,rgba(255,180,255,255),rgba(255,122,122,255)); /*Fx 3.6-15*/
-  //background: linear-gradient(to bottom, rgba(255,180,255,255), rgba(255,122,122,255)); /*Standard*/
-  //background-color: #fff;
-}
-#app, .container {
   padding: 0;
+}
+
+pre {
+  white-space: normal;
+}
+
+/**?����Ĭ������?**/
+body, button, input, select, textarea {
+  font: 12px/1.5 arial, tahoma, "Hiragino Sans GB", "Microsoft Yahei", sans-serif;
+  font-weight: normal;
   margin: 0;
+}
+
+img {
+  max-width: 100%;
+  /*height: auto !important;*/
+  display: block;
+  margin: 0 auto;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: 100%;
+  font-weight: normal;
+}
+
+address, cite, dfn, em, var {
+  font-style: normal;
+  font-size: 100%;
+}
+
+/*?��б�����?*/
+code, kbd, pre, samp {
+  font-family: courier new, courier, monospace;
+}
+
+small {
+  font-size: 12px;
+}
+
+/*?С��?12px?�����ĺ����Ķ�����?small?������?*/
+
+/**?�����б�Ԫ��?**/
+ul li {
+  list-style-type: none;
+}
+
+ul li:last-child {
+  border-bottom: none;
+}
+
+/**?重置文本格式元素? 去掉ie10下的灰色背景，去掉iOS 8+ 和 Safari 8+ 间距间隙**/
+a {
+  text-decoration: none;
+  outline: none;
+  background-color: transparent;
+  -webkit-text-decoration-skip: objects;
+}
+
+a:active,
+a:hover {
+  outline-width: 0;
+}
+
+a:focus {
+  outline: none;
+}
+
+/**?���ñ�Ԫ��?**/
+legend {
+  color: #000000;
+}
+
+button, input, select, textarea {
+  font-size: 100%;
+  -webkit-appearance: none;
+}
+
+/**?���ñ��Ԫ��?**/
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+.clear:before, .clear:after {
+  content: " ";
+  display: block;
+  overflow: hidden;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+
+.clear:after {
+  clear: both;
+}
+
+.clear {
+  *zoom: 1;
+}
+
+.clearfix:after {
+  content: "";
+  display: block;
+  visibility: hidden;
+  height: 0;
+  clear: both;
+}
+
+.clearfix {
+  zoom: 1;
+}
+
+input:focus {
+  border: 0 none;
+  outline: none;
+}
+
+div {
+  text-align: center;
+}
+
+/*�����ȷ��display �� iOS 4-7.*/
+
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+/*�����ȷ��display ��  IE.*/
+
+template, [hidden] {
+  display: none;
+}
+
+/*�����ȷ�Ĵ�ֱ���� �� Chrome, Firefox, �� Opera.*/
+progress {
+  vertical-align: baseline;
+}
+
+/**
+ * �� Firefox 39-���Ƴ��ײ��߿�.
+ *  �� Chrome, Edge, IE, Opera, �� Safari �������ȷ���»�����ʽ.
+ */
+
+abbr[title] {
+  border-bottom: none;
+  text-decoration: underline;
+  text-decoration: underline dotted;
+}
+
+/**
+ * �� Android 4.3- �����ȷ��������ʽ.
+ */
+dfn {
+  font-style: italic;
+}
+
+/*Svg��IE���������*/
+svg:not(:root) {
+  overflow: hidden;
+}
+
+/**
+ * 1. ��Firefox�������ȷ��ģ��.
+ * 2. ��IE��������ʾ.
+ */
+
+hr {
+  box-sizing: content-box;
+  height: 0;
+  overflow: visible;
+}
+
+button,
+html [type="button"], /* 1 */
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button; /* 2 */
+  cursor: pointer; /* 3 */
+}
+
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+/*��ȷ��ʾ���ּ�࣬*/
+legend {
+  box-sizing: border-box;
+  color: inherit;
+  display: table;
+  max-width: 100%;
+  padding: 0;
+  white-space: normal;
+}
+
+input {
+  line-height: normal;
+}
+
+[type="checkbox"],
+[type="radio"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+[type="search"] {
+  -webkit-appearance: textfield;
+  outline-offset: -2px;
+}
+
+[type="search"]::-webkit-search-cancel-button,
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+::-webkit-input-placeholder {
+  color: inherit;
+  opacity: 0.54;
+}
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  font: inherit;
+}
+
+input, div, .shadow-none {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* WebKit browsers */
+::-webkit-input-placeholder {
+  color: #B8B8B8;
+}
+
+/* Mozilla Firefox 4 to 18 */
+:-moz-placeholder {
+  color: #B8B8B8;
+}
+
+/* Mozilla Firefox 19+ */
+::-moz-placeholder {
+  color: #B8B8B8;
+}
+
+/* Internet Explorer 10+ */
+:-ms-input-placeholder {
+  color: #B8B8B8;
+}
+
+/** 按钮点击效果 */
+.button {
+  transition: opacity 0.2s;
+  -moz-transition: opacity 0.2s; /* Firefox 4 */
+  -webkit-transition: opacity 0.2s; /* Safari and Chrome */
+  -o-transition: opacity 0.2s; /* Opera */
+}
+
+.button:active {
+  opacity: 0.5;
+}
+
+div.index, div#index {
+  background: #fff;
+  display: none;
+}
+div#index.nxd {
+  background: #EFF1F5!important;
+  -webkit-overflow-scrolling: touch;
+}
+/*flex????*/
+div#index.nxdF {
   width: 100%;
   height: 100%;
+  background: #EFF1F5!important;
+  -webkit-overflow-scrolling: touch;
 }
-::-webkit-input-placeholder { /* WebKit browsers */
-  color: #ccc!important;
-  direction: rtl;
-}
+/*div.nxd {*/
+/*background: #EFF1F5!important;*/
+/*}*/
 
-:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-  color: #ccc!important;
-  direction: rtl;
-}
-
-::-moz-placeholder { /* Mozilla Firefox 19+ */
-  color: #ccc!important;
-  direction: rtl;
-}
-
-:-ms-input-placeholder { /* Internet Explorer 10+ */
-  color: #ccc!important;
-  direction: rtl;
+/** 横屏状态样式  */
+.landscape {
+  text-align: center;
+  display: none;
+  background: #eee;
+  padding-top: 7%;
+  margin: 0 auto;
 }
 
-.containerWrapper {
-  width: 100%;
-  height: 100%;
+/** 横屏状态gif  */
+.landscape img {
+  width: 35%;
 }
 
-.loginWrapper {
-  width: 22rem;
-  height: 20rem;
-  position: absolute;
-  margin-top: -11rem;
-  margin-left: -10rem;
-  top: 50%;
-  left: 50%;
-  border: 0.05rem solid #eee;
-  border-radius: 0.5rem;
-  padding: 1rem;
+/** loading */
+.spinner {
+  padding: 60% 0 100% 0;
+  text-align: center;
+  background: #fff;
 }
 
-.col10 {
-  width: 10%;
+.spinner > div {
+  width: 1em;
+  height: 1em;
+  background-color: #198BFF;
+
+  border-radius: 100%;
+  display: inline-block;
+  -webkit-animation: bouncedelay 1.4s infinite ease-in-out;
+  animation: bouncedelay 1.4s infinite ease-in-out;
+  /* Prevent first frame from flickering when animation starts */
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
 }
 
-.col20 {
-  width: 20%;
+.spinner .bounce1 {
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
 }
 
-.col40 {
-  width: 40%;
+.spinner .bounce2 {
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
 }
 
-.col60 {
-  width: 60%;
+@-webkit-keyframes bouncedelay {
+  0%, 80%, 100% {
+    -webkit-transform: scale(0.0)
+  }
+  40% {
+    -webkit-transform: scale(1.0)
+  }
 }
 
-.col80 {
-  width: 80%;
+@keyframes bouncedelay {
+  0%, 80%, 100% {
+    transform: scale(0.0);
+    -webkit-transform: scale(0.0);
+  }
+  40% {
+    transform: scale(1.0);
+    -webkit-transform: scale(1.0);
+  }
 }
 
-.fl {
-  float: left;
+//@font-face {
+//  font-family: 'icomoon';
+//  src: url('../fonts/icomoon.eot?x0zja2');
+//  src: url('../fonts/icomoon.eot?x0zja2#iefix') format('embedded-opentype'),
+//  url('../fonts/icomoon.ttf?x0zja2') format('truetype'),
+//  url('../fonts/icomoon.woff?x0zja2') format('woff'),
+//  url('../fonts/icomoon.svg?x0zja2#icomoon') format('svg');
+//  font-weight: normal;
+//  font-style: normal;
+//}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-input::placeholder {
-  text-align: left;
+.icon-01:before {
+  content: "\e900";
+  color: #478ffb;
 }
 
-input::-webkit-input-placeholder {
-  text-align: left;
+.icon-02:before {
+  content: "\e901";
 }
 
-input:-ms-input-placeholder {
-  text-align: left;
-}
-
-
-
-
+/*2018.1.9 活动icons 和APP保持一致的 */
+//@font-face {
+//  font-family: 'icons';
+//  src: url('../icons/fonts/icomoon.eot');
+//  src: url('../icons/fonts/icomoon.eot?#iefix') format('embedded-opentype'),
+//  url('../icons/fonts/icomoon.woff') format('woff'),
+//  url('../icons/fonts/icomoon.ttf') format('truetype'),
+//  url('../icons/fonts/icomoon.svg#iconfont') format('svg');
+//}

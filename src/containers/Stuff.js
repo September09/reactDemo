@@ -1,9 +1,7 @@
 import React from "react"
-import Header from "../components/header"
 
 const Stuff = () =>
   <div>
-    <Header defaultSelectedKeys="2"/>
     <h2>STUFF</h2>
     <p>Mauris sem velit, vehicula eget sodales vitae,
                     rhoncus eget sapien:
