@@ -15,7 +15,7 @@ class HeaderPlus extends React.Component {
     this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this)
   }
   render() {
-    console.log('header', this.props)
+    console.log("header", this.props)
     return (
       <Header style={{ background: "#fff", padding: 0 }} >
         <div className="middle col60 fl">
