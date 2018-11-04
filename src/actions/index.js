@@ -12,6 +12,9 @@ export const REGISTER_IN_DOING = "REGISTER_IN_DOING"
 export const REGISTER_IN_DONE = "REGISTER_IN_DONE"
 export const REGISTER_IN_ERROR = "REGISTER_IN_ERROR"
 
+// 用户
+export const HAS_USER = "HAS_USER"
+
 // 输入用户名
 export const CHANGE_USER_VALUE = "CHANGE_USER_VALUE"
 

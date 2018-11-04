@@ -6,6 +6,9 @@ import { createAction } from "redux-actions"
 // import * as actionTypes from "./index"
 import HttpUtil from "../utils/httpUtils"
 
+// export const hasUser = () => () => {
+//
+// }
 export const getAllUsers = (param, handleResult) => () => {
   HttpUtil.postData("/user/allUsers", {}).then( response => {
     if (response.status === 0) {

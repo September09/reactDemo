@@ -4,7 +4,10 @@
 
 import React from "react"
 import PureRenderMixin from "react-addons-pure-render-mixin"
+import { bindActionCreators } from "redux"
+import { connect } from "react-redux"
 import { NavLink } from "react-router-dom"
+import * as homeActions from "../actions/home"
 import { Menu, Layout } from "antd"
 const { Header } = Layout
 import "../style/header.scss"
@@ -31,19 +34,44 @@ class HeaderPlus extends React.Component {
           </Menu>
         </div>
         <div className="right col40 fl">
-          <Menu
-            theme="primary-color"
-            mode="horizontal"
-            defaultSelectedKeys={["2"]}
-            style={{ lineHeight: "3.2rem" }}
-          >
-            <Menu.Item key="4"><NavLink to="/login">登录</NavLink></Menu.Item>
-            <Menu.Item key="5"><NavLink to="/register">注册</NavLink></Menu.Item>
-          </Menu>
+          {
+            localStorage.getItem('token') ? <Menu
+              theme="primary-color"
+              mode="horizontal"
+              defaultSelectedKeys={["2"]}
+              style={{ lineHeight: "3.2rem" }}
+            >
+              <Menu.Item key="4"><NavLink to="/login" onClick={ this.signOut.bind(this)}>退出</NavLink></Menu.Item>
+            </Menu> : <Menu
+              theme="primary-color"
+              mode="horizontal"
+              defaultSelectedKeys={["2"]}
+              style={{ lineHeight: "3.2rem" }}
+            >
+              <Menu.Item key="4"><NavLink to="/login">登录</NavLink></Menu.Item>
+              <Menu.Item key="5"><NavLink to="/register">注册</NavLink></Menu.Item>
+            </Menu>
+          }
+
         </div>
       </Header>
     )
   }
+  signOut() {
+    localStorage.setItem("token", "")
+  }
 }
 
-export default HeaderPlus
+const mapStateToProps = state => {
+  return { ...state }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    homeActions: bindActionCreators({...homeActions}, dispatch)
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(HeaderPlus)
+
+// export default HeaderPlus

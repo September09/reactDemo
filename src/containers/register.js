@@ -6,7 +6,7 @@
 import React, { Component } from "react"
 import PureRenderMixin from "react-addons-pure-render-mixin"
 import { bindActionCreators } from "redux"
-import { Form, Icon, Input, Button, Checkbox } from "antd"
+import { Form, Icon, Input, Button, Checkbox, message } from "antd"
 import { connect } from "react-redux"
 import "../style/common.scss"
 import "../style/register.scss"
@@ -60,12 +60,21 @@ export class Register extends Component {
   changeHandle(changeName, changeValue) {
     const changeObj = {}
     changeObj[changeName] = changeValue
+    console.log(' changeObj', changeObj)
     this.props.loginActions.updateBindMobileState(changeObj)
   }
 
   clickHandle() {
     const {userName, password} = this.props.changeInput
-    this.props.loginActions.register(userName, password)
+    console.log('this.props.changeInput: ', this.props.changeInput)
+    this.props.loginActions.register({userName, password}, () => {
+      message.success("login success, please login!")
+      // localStorage.setItem("token", result.token)
+      // this.props.loginActions.loginIn({user: result.userName})
+      setTimeout(() => {
+        this.props.history.push("/login")
+      }, 2000)
+    })
   }
 }
 

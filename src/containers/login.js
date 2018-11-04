@@ -69,7 +69,7 @@ export class Login extends Component {
       this.props.loginActions.loginIn({user: result.userName})
       setTimeout(() => {
         this.props.history.push("/home")
-      }, 2000)
+      }, 1000)
     })
   }
 }

@@ -15,6 +15,7 @@ export const login = (param, handleResult) => () => {
 }
 
 export const register = (param, handleResult) => () => {
+  console.log('param', param)
   HttpUtil.postData("/user/register", param).then( response => {
     if (response.status === 0) {
       handleResult(response)
